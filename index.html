@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </div>
+        </label>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-address-book"></i>
+                <h1>Contact Management System</h1>
+            </div>
+            <p class="subtitle">Manage your contacts efficiently and securely</p>
+        </header>
+
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search contacts...">
+                <button class="clear-search" id="clear-search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="filter-options">
+                <select id="sort-by">
+                    <option value="name">Sort by Name</option>
+                    <option value="phone">Sort by Phone</option>
+                    <option value="email">Sort by Email</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h2><i class="fas fa-user-plus"></i> Add New Contact</h2>
+                <button class="toggle-form" id="toggle-form">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+            </div>
+            <form id="contact-form">
+                <input type="hidden" id="contact-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Name</label>
+                        <input type="text" id="name" required placeholder="Enter full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Phone</label>
+                        <input type="tel" id="phone" required placeholder="Enter phone number">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="email" required placeholder="Enter email address">
+                </div>
+                <div class="button-group">
+                    <button type="submit" id="submit-btn" class="primary-btn">
+                        <i class="fas fa-plus"></i> Add Contact
+                    </button>
+                    <button type="button" id="cancel-btn" class="secondary-btn" style="display:none;">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="contacts-section">
+            <div class="section-header">
+                <div class="header-left">
+                    <h2><i class="fas fa-list"></i> Contact List</h2>
+                    <div class="contact-count">
+                        <span id="contact-count">0</span> contacts
+                    </div>
+                </div>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="table">
+                        <i class="fas fa-table"></i>
+                    </button>
+                    <button class="view-btn" data-view="grid">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table id="contacts-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-user"></i> Name</th>
+                            <th><i class="fas fa-phone"></i> Phone</th>
+                            <th><i class="fas fa-envelope"></i> Email</th>
+                            <th><i class="fas fa-cog"></i> Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Contacts will be rendered here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="grid-view" class="grid-container" style="display: none;">
+                <!-- Grid view will be rendered here -->
+            </div>
+        </div>
+
+        <div id="notification" class="notification">
+            <i class="fas fa-check-circle"></i>
+            <span class="notification-message"></span>
+        </div>
+    </div>
+
+    <!-- Contact Details Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Contact Details</h3>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Contact details will be rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
